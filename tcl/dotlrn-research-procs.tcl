@@ -78,13 +78,19 @@ namespace eval dotlrn_research {
     } {
         Add the research paper applet to a specifc dotlrn community
     } {
-	set instance_id [dotlrn::instantiate_and_mount \
-            -mount_point "research-papers" $community_id [package_key]]
-
         # get the portal_template_id by callback
         set pt_id [dotlrn_community::get_portal_template_id $community_id]
 
         research_portlet::make_self_available $pt_id
+
+        if {[dotlrn_community::dummy_comm_p -community_id $community_id]} {
+            research_portlet::add_self_to_page $pt_id "" $community_id
+            return
+        }
+
+	set instance_id [dotlrn::instantiate_and_mount \
+            -mount_point "research-papers" $community_id [package_key]]
+
         research_portlet::add_self_to_page $pt_id "" $community_id
 
         dotlrn_research_admin::add_applet_to_community $community_id
