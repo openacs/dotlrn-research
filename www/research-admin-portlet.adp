@@ -12,7 +12,7 @@
       @files_to_add.name@
       &nbsp;
       <small>[&nbsp;
-        <a href="@files_to_add.url@download/@files_to_add.name@?version_id=@files_to_add.live_revision@">
+        <a href="@files_to_add.url@download/index?version_id=@files_to_add.live_revision@">
           download
         </a>
         &nbsp;|&nbsp;
@@ -35,7 +35,7 @@
       @files_to_remove.name@
       &nbsp;
       <small>[&nbsp;
-        <a href="@files_to_remove.url@download/@files_to_remove.name@?version_id=@files_to_remove.live_revision@">
+        <a href="@files_to_remove.url@download/index?version_id=@files_to_remove.live_revision@">
           download
         </a>
         &nbsp;|&nbsp;

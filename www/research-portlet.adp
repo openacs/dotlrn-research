@@ -9,11 +9,11 @@
       <td width="5"><img border="0" src="@files.url@graphics/file.gif" width="15" height="13"></img></td>
       <td><a href="@files.url@file?file_id=@files.file_id@">@files.name@</a></td>
       <td>
-        <small>(&nbsp;
-          <a href="@files.url@download/@files.name@?version_id=@files.live_revision@">
+        <small>[&nbsp;
+          <a href="@files.url@download/index?version_id=@files.live_revision@">
             download
           </a>
-        &nbsp;)</small>
+        &nbsp;]</small>
       </td>
     </tr>  
 </multiple>
