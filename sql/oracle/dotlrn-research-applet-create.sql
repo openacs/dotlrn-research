@@ -120,6 +120,34 @@ begin
         impl_name => 'dotlrn_research'
     );
 
+
+    -- AddPortlet
+    foo := acs_sc_impl.new_alias (
+        impl_contract_name => 'dotlrn_applet',
+        impl_name => 'dotlrn_research',
+        impl_operation_name => 'AddPortlet',
+        impl_alias => 'dotlrn_research::add_portlet',
+        impl_pl => 'TCL'
+    );
+
+    -- RemovePortlet
+    foo := acs_sc_impl.new_alias (
+        impl_contract_name => 'dotlrn_applet',
+        impl_name => 'dotlrn_research',
+        impl_operation_name => 'RemovePortlet',
+        impl_alias => 'dotlrn_research::remove_portlet',
+        impl_pl => 'TCL'
+    );
+
+    -- Clone
+    foo := acs_sc_impl.new_alias (
+        impl_contract_name => 'dotlrn_applet',
+        impl_name => 'dotlrn_research',
+        impl_operation_name => 'Clone',
+        impl_alias => 'dotlrn_research::clone',
+        impl_pl => 'TCL'
+    );
+
 end;
 /
 show errors
