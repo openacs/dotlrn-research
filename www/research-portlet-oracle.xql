@@ -13,7 +13,7 @@
                cr_revisions.content_length as content_size,
                (select site_node.url(site_nodes.node_id)
                 from site_nodes
-                where site_nodes.object_id = get_package_id(cr_items.item_id)) as url
+                where site_nodes.object_id = file_storage.get_package_id(cr_items.item_id)) as url
         from cr_items,
              cr_revisions,
              acs_objects,
