@@ -51,6 +51,7 @@ namespace eval research_portlet {
             -portal_id $portal_id \
             -page_id $page_id \
             -portlet_name [my_name] \
+            -pretty_name [get_pretty_name] \
             -key "party_id" \
             -value_id $party_id
         ]
