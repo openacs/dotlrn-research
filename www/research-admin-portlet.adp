@@ -16,7 +16,7 @@
           download
         </a>
         &nbsp;|&nbsp;
-        <a href="research-paper-add?file_id=@files_to_add.live_revision@">add to community</a>
+        <a href="research-papers/add?file_id=@files_to_add.live_revision@">add to community</a>
       &nbsp;]</small>
   </li>  
 </multiple>
@@ -39,7 +39,7 @@
           download
         </a>
         &nbsp;|&nbsp;
-        <a href="research-paper-remove?file_id=@files_to_remove.live_revision@">remove from community</a>
+        <a href="research-papers/remove?file_id=@files_to_remove.live_revision@">remove from community</a>
       &nbsp;]</small>
   </li>  
 </multiple>

@@ -21,7 +21,7 @@ namespace eval dotlrn_research {
     } {
         get the package_key this applet deals with
     } {
-        return "file-storage"
+        return "dotlrn-research"
     }
 
     ad_proc portal_element_key {
@@ -51,11 +51,20 @@ namespace eval dotlrn_research {
         dotlrn_applet::add_applet_to_dotlrn -applet_key [applet_key]
     }
 
+    ad_proc -public remove_applet {
+    } {
+        Used for one-time destroy - must be repeatable!
+    } {
+    }
+
     ad_proc -public add_applet_to_community {
         community_id
     } {
         Add the research paper applet to a specifc dotlrn community
     } {
+	set instance_id [dotlrn::instantiate_and_mount \
+            -mount_point "research-papers" $community_id [package_key]]
+
         # get the portal_template_id by callback
         set pt_id [dotlrn_community::get_portal_template_id $community_id]
 
@@ -65,9 +74,8 @@ namespace eval dotlrn_research {
         dotlrn_research_admin::add_applet_to_community $community_id
     }
 
-    ad_proc -public remove_applet {
+    ad_proc -public remove_applet_from_community {
         community_id
-        package_id
     } {
         remove the applet from the community
     } {
@@ -77,6 +85,12 @@ namespace eval dotlrn_research {
         user_id
     } {
         One time user-specfic init
+    } {
+    }
+
+    ad_proc -public remove_user {
+        user_id
+    } {
     } {
     }
 
@@ -92,12 +106,6 @@ namespace eval dotlrn_research {
         # Call the portal element to be added correctly
         # Make research paper applet available at community-user page level
         research_portlet::add_self_to_page $portal_id "" $community_id
-    }
-
-    ad_proc -public remove_user {
-        user_id
-    } {
-    } {
     }
 
     ad_proc -public remove_user_from_community {
