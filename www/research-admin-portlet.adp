@@ -29,13 +29,11 @@
     <li>
       <img border="0" src="@files_to_add.url@graphics/file.gif" width="15" height="13">
       &nbsp;
-      @files_to_add.name@
+      <a href="@files_to_add.url@download/index?version_id=@files_to_add.live_revision@">
+        @files_to_add.name@
+      </a>
       &nbsp;
       <small>[&nbsp;
-        <a href="@files_to_add.url@download/index?version_id=@files_to_add.live_revision@">
-          download
-        </a>
-        &nbsp;|&nbsp;
         <a href="research-papers/add?file_id=@files_to_add.live_revision@">add to community</a>
       &nbsp;]</small>
   </li>  
@@ -52,13 +50,11 @@
     <li>
       <img border="0" src="@files_to_remove.url@graphics/file.gif" width="15" height="13">
       &nbsp;
-      @files_to_remove.name@
+      <a href="@files_to_remove.url@download/index?version_id=@files_to_remove.live_revision@">
+        @files_to_remove.name@
+      </a>
       &nbsp;
       <small>[&nbsp;
-        <a href="@files_to_remove.url@download/index?version_id=@files_to_remove.live_revision@">
-          download
-        </a>
-        &nbsp;|&nbsp;
         <a href="research-papers/remove?file_id=@files_to_remove.live_revision@">remove from community</a>
       &nbsp;]</small>
   </li>  

@@ -27,11 +27,15 @@
 <multiple name="files">
     <tr>
       <td width="5"><img border="0" src="@files.url@graphics/file.gif" width="15" height="13"></td>
-      <td><a href="@files.url@file?file_id=@files.file_id@">@files.name@</a></td>
+      <td>
+        <a href="@files.url@download/index?version_id=@files.live_revision@">
+          @files.name@
+        </a>
+      </td>
       <td>
         <small>[&nbsp;
-          <a href="@files.url@download/index?version_id=@files.live_revision@">
-            download
+          <a href="@files.url@file?file_id=@files.file_id@">
+            view details
           </a>
         &nbsp;]</small>
       </td>
