@@ -116,7 +116,7 @@ namespace eval dotlrn_research {
     ad_proc -public add_portlet {
         portal_id
     } {
-        set type [dotlrn::dotlrn::get_type_from_portal_id -portal_id $portal_id]
+        set type [dotlrn::get_type_from_portal_id -portal_id $portal_id]
 
         if {![string equal $type user] && ![string equal $type dotlrn_community] && ![string equal $type dotlrn_club]} {
             add_portlet_helper $portal_id
