@@ -5,7 +5,7 @@
     <package-name>dotLRN Research Paper</package-name>
     <pretty-plural>dotLRN Research Papers</pretty-plural>
     <initial-install-p>f</initial-install-p>
-    <singleton-p>f</singleton-p>
+    <singleton-p>t</singleton-p>
 
     <version name="0.1d" url="http://openacs.org/repository/download/apm/dotlrn-research-0.1d.apm">
     <database-support>
