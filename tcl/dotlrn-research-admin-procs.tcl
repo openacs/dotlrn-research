@@ -83,7 +83,7 @@ namespace eval dotlrn_research_admin {
         set portal_id [dotlrn_community::get_admin_portal_id -community_id $community_id]
 
         research_admin_portlet::make_self_available $portal_id
-        research_admin_portlet::add_self_to_page $portal_id "" $community_id
+        research_admin_portlet::add_self_to_page -portal_id $portal_id -package_id "" -party_id $community_id
     }
 
     ad_proc -public add_user {

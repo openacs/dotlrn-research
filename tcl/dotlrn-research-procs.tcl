@@ -83,14 +83,14 @@ namespace eval dotlrn_research {
         research_portlet::make_self_available $portal_id
 
         if {[dotlrn_community::dummy_comm_p -community_id $community_id]} {
-            research_portlet::add_self_to_page $portal_id "" $community_id
+            research_portlet::add_self_to_page -portal_id $portal_id -package_id "" -party_id $community_id
             return
         }
 
-	set instance_id [dotlrn::instantiate_and_mount \
+	set package_id [dotlrn::instantiate_and_mount \
             -mount_point "research-papers" $community_id [package_key]]
 
-        research_portlet::add_self_to_page $portal_id "" $community_id
+        research_portlet::add_self_to_page -portal_id $portal_id -package_id "" -party_id $community_id
 
         dotlrn_research_admin::add_applet_to_community $community_id
     }

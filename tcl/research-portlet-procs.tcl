@@ -49,23 +49,23 @@ namespace eval research_portlet {
     }
 
     ad_proc -public add_self_to_page {
-        {-page_id ""}
-	portal_id
-	instance_id
-        party_id
+	{-portal_id:required}
+        {-page_name ""}
+	{-package_id:required}
+        {-party_id:required}
     } {
         Adds a research portlet element to the specified page.
 
-        @param page_id The page to add self to
+        @param page_name The page to add self to
 	@param portal_id The portal to add self to
-        @param instance_id XXX DO NOT KNOW WHAT THIS IS
+        @param package_id XXX DO NOT KNOW WHAT THIS IS
         @param party_id The party for which to display research papers
 
 	@return element_id The new element's id
     } {
         return [portal::add_element_or_append_id \
             -portal_id $portal_id \
-            -page_id $page_id \
+            -page_name $page_name \
             -portlet_name [my_name] \
             -pretty_name [get_pretty_name] \
             -key "party_id" \
@@ -75,13 +75,13 @@ namespace eval research_portlet {
 
     ad_proc -public remove_self_from_page {
 	portal_id
-	instance_id
+	package_id
         party_id
     } {
         Removes a research portlet element from the specified page.
 
         @param portal_id The page to remove self from
-        @param instance_id XXX DO NOT KNOW WHAT THIS IS
+        @param package_id XXX DO NOT KNOW WHAT THIS IS
         @param party_id The party for which to display research papers
     } {
         portal::remove_element_or_remove_id \
