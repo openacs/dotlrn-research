@@ -11,7 +11,9 @@
                    fs_files.type,
                    to_char(fs_files.last_modified, 'Mon DD YYYY HH24:MI') as last_modified,
                    fs_files.content_size,
-                   fs_files.url
+                   (select site_node.url(site_nodes.node_id)
+                    from site_nodes
+                    where site_nodes.object_id = file_storage.get_package_id(fs_files.file_id)) as url
             from fs_files,
                  acs_permissions
             where acs_permissions.object_id = fs_files.live_revision
@@ -33,7 +35,9 @@
                    fs_files.type,
                    to_char(fs_files.last_modified, 'Mon DD YYYY HH24:MI') as last_modified,
                    fs_files.content_size,
-                   fs_files.url
+                   (select site_node.url(site_nodes.node_id)
+                    from site_nodes
+                    where site_nodes.object_id = file_storage.get_package_id(fs_files.file_id)) as url
             from dotlrn_research_papers,
                  fs_files
             where dotlrn_research_papers.community_id = :community_id
