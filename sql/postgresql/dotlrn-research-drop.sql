@@ -21,14 +21,9 @@
 -- @creation-date 2002-02-24
 -- @version $Id$
 --
--- Postgresql port adarsh@symphinity.com
+-- postgresql port adarsh@symphinity.com
 --  
 -- 11th July 2002
 --
 
 \i dotlrn-research-applet-drop.sql
-\i research-admin-portlet-drop.sql;
-\i research-portlet-drop.sql;
-
-drop table dotlrn_research_papers;
-

@@ -21,101 +21,89 @@
 -- @creation-date 2002-02-24
 -- @version $Id$
 --
--- Postgresql port adarsh@symphinity.com
---  
+-- postgresql port adarsh@symphinity.com
+--
 -- 11th July 2002
 --
 
 select acs_sc_binding__delete (
-        'dotlrn_applet',						--contract_name
-        'dotlrn_research'						--impl_name
+    'dotlrn_applet',
+    'dotlrn_research'
 );
 
--- GetPrettyName
 select acs_sc_impl_alias__delete (
-        'dotlrn_applet',						--impl_contract_name
-        'dotlrn_research',						--impl_name
-        'GetPrettyName'							--impl_operation_name
+    'dotlrn_applet',
+    'dotlrn_research',
+    'GetPrettyName'
 );
 
--- AddApplet
 select acs_sc_impl_alias__delete (
-        'dotlrn_applet',
-        'dotlrn_research',
-        'AddApplet'
-    );
+    'dotlrn_applet',
+    'dotlrn_research',
+    'AddApplet'
+);
 
-    -- RemoveApplet
 select acs_sc_impl_alias__delete (
-        'dotlrn_applet',
-        'dotlrn_research',
-        'RemoveApplet'
-    );
+    'dotlrn_applet',
+    'dotlrn_research',
+    'RemoveApplet'
+);
 
-    -- AddAppletToCommunity
 select acs_sc_impl_alias__delete (
-        'dotlrn_applet',
-        'dotlrn_research',
-        'AddAppletToCommunity'
-    );
+    'dotlrn_applet',
+    'dotlrn_research',
+    'AddAppletToCommunity'
+);
 
-    -- RemoveAppletFromCommunity
 select acs_sc_impl_alias__delete (
-        'dotlrn_applet',
-        'dotlrn_research',
-        'RemoveAppletFromCommunity'
-    );
+    'dotlrn_applet',
+    'dotlrn_research',
+    'RemoveAppletFromCommunity'
+);
 
-    -- AddUser
 select acs_sc_impl_alias__delete (
-        'dotlrn_applet',
-        'dotlrn_research',
-        'AddUser'
-    );
+    'dotlrn_applet',
+    'dotlrn_research',
+    'AddUser'
+);
 
-    -- RemoveUser
 select acs_sc_impl_alias__delete (
-        'dotlrn_applet',
-        'dotlrn_research',
-        'RemoveUser'
-    );
+    'dotlrn_applet',
+    'dotlrn_research',
+    'RemoveUser'
+);
 
-    -- AddUserToCommunity
 select acs_sc_impl_alias__delete (
-        'dotlrn_applet',
-        'dotlrn_research',
-        'AddUserToCommunity'
-    );
+    'dotlrn_applet',
+    'dotlrn_research',
+    'AddUserToCommunity'
+);
 
-    -- RemoveUserFromCommunity
 select acs_sc_impl_alias__delete (
-        'dotlrn_applet',
-        'dotlrn_research',
-        'RemoveUserFromCommunity'
-    );
+    'dotlrn_applet',
+    'dotlrn_research',
+    'RemoveUserFromCommunity'
+);
 
-    -- AddPortlet
 select acs_sc_impl_alias__delete (
-        'dotlrn_applet',
-        'dotlrn_research',
-        'AddPortlet'
-    );
+    'dotlrn_applet',
+    'dotlrn_research',
+    'AddPortlet'
+);
 
-    -- RemovePortlet
 select acs_sc_impl_alias__delete (
-        'dotlrn_applet',
-        'dotlrn_research',
-        'RemovePortlet'
-    );
+    'dotlrn_applet',
+    'dotlrn_research',
+    'RemovePortlet'
+);
 
-    -- Clone
 select acs_sc_impl_alias__delete (
-        'dotlrn_applet',
-        'dotlrn_research',
-        'Clone'
-    );
+    'dotlrn_applet',
+    'dotlrn_research',
+    'Clone'
+);
 
 select acs_sc_impl__delete (
-        'dotlrn_applet',						--impl_contract_name
-        'dotlrn_research'						--impl_name
-    );
+    'dotlrn_applet',
+    'dotlrn_research'
+);

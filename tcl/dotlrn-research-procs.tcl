@@ -30,7 +30,7 @@ namespace eval dotlrn_research {
     } {
         What's my applet key?
     } {
-        return "dotlrn_research"
+        return dotlrn_research
     }
 
     ad_proc -public package_key {
@@ -68,31 +68,15 @@ namespace eval dotlrn_research {
     } {
         Add the research paper applet to a specifc dotlrn community
     } {
-        # set up stuff
+        set type [dotlrn_community::get_toplevel_community_type_from_community_id $community_id]
 
-	set package_id [dotlrn::instantiate_and_mount \
-                            -mount_point "research-papers" \
-                            $community_id \
-                            [package_key]
-        ]
-        
-        
-        # portlet stff
-        
-        set portal_id [dotlrn_community::get_portal_id \
-                           -community_id $community_id
-        ]
-        set args [ns_set create]
-        ns_set put $args "party_id" $community_id
-        add_portlet_helper $portal_id $args
+        if {[string equal $type dotlrn_class_instance]} {
+            set portal_id [dotlrn_community::get_portal_id -community_id $community_id]
+            add_portlet_helper $portal_id
 
-        # set up the admin portlet - call directly
-        set admin_portal_id [dotlrn_community::get_admin_portal_id \
-                                 -community_id $community_id
-        ]
-        research_admin_portlet::add_self_to_page  \
-            -portal_id $admin_portal_id \
-            -party_id $community_id
+            set admin_portal_id [dotlrn_community::get_admin_portal_id -community_id $community_id]
+            research_admin_portlet::add_self_to_page -portal_id $admin_portal_id
+        }
     }
 
     ad_proc -public remove_applet_from_community {
@@ -106,74 +90,54 @@ namespace eval dotlrn_research {
     ad_proc -public add_user {
         user_id
     } {
-        One time user-specfic init
-    } {
-        # noop
+        # no-op
     }
 
     ad_proc -public remove_user {
         user_id
     } {
-    } {
-        # noop
+        # no-op
     }
 
     ad_proc -public add_user_to_community {
         community_id
         user_id
     } {
-        Add a user to a to a specifc dotlrn community
-    } {
-        # noop
+        # no-op
     }
 
     ad_proc -public remove_user_from_community {
         community_id
         user_id
     } {
-        Remove a user from a community
-    } {
-        #noop
+        # no-op
     }
 
     ad_proc -public add_portlet {
         portal_id
     } {
-    } {
-        set args [ns_set create]
-        ns_set put $args party_id 0
+        set type [dotlrn::dotlrn::get_type_from_portal_id -portal_id $portal_id]
 
-        set type [dotlrn::get_type_from_portal_id -portal_id $portal_id]
-        
-        if {![string equal $type "user"] 
-            && ![string equal $type "dotlrn_community"]
-            && ![string equal $type "dotlrn_club"]} {
-            # Add the portlet only to class instaces
-            add_portlet_helper $portal_id $args
+        if {![string equal $type user] && ![string equal $type dotlrn_community] && ![string equal $type dotlrn_club]} {
+            add_portlet_helper $portal_id
         }
     }
 
     ad_proc -public add_portlet_helper {
         portal_id
-        args
     } {
-    } {
-        research_portlet::add_self_to_page \
-            -portal_id $portal_id \
-            -party_id [ns_set get $args "party_id"]
+        research_portlet::add_self_to_page -portal_id $portal_id
     }
 
     ad_proc -public remove_portlet {
         portal_id
-        args
     } {
-    } {
+        # no-op
     }
 
     ad_proc -public clone {
         old_community_id
         new_community_id
-    } {
     } {
         ns_log notice "Cloning: [applet_key]"
         add_applet_to_community $new_community_id

@@ -23,18 +23,16 @@
 --
 
 declare
-    foo                         integer;
+    foo                             integer;
 begin
 
-    -- create the implementation
-    foo := acs_sc_impl.new (
+    foo := acs_sc_impl.new(
         impl_contract_name => 'dotlrn_applet',
         impl_name => 'dotlrn_research',
         impl_owner_name => 'dotlrn_research'
     );
 
-    -- GetPrettyName
-    foo := acs_sc_impl.new_alias (
+    foo := acs_sc_impl.new_alias(
         impl_contract_name => 'dotlrn_applet',
         impl_name => 'dotlrn_research',
         impl_operation_name => 'GetPrettyName',
@@ -42,8 +40,7 @@ begin
         impl_pl => 'TCL'
     );
 
-    -- AddApplet
-    foo := acs_sc_impl.new_alias (
+    foo := acs_sc_impl.new_alias(
         impl_contract_name => 'dotlrn_applet',
         impl_name => 'dotlrn_research',
         impl_operation_name => 'AddApplet',
@@ -51,8 +48,7 @@ begin
         impl_pl => 'TCL'
     );
 
-    -- RemoveApplet
-    foo := acs_sc_impl.new_alias (
+    foo := acs_sc_impl.new_alias(
         impl_contract_name => 'dotlrn_applet',
         impl_name => 'dotlrn_research',
         impl_operation_name => 'RemoveApplet',
@@ -60,8 +56,7 @@ begin
         impl_pl => 'TCL'
     );
 
-    -- AddAppletToCommunity
-    foo := acs_sc_impl.new_alias (
+    foo := acs_sc_impl.new_alias(
         impl_contract_name => 'dotlrn_applet',
         impl_name => 'dotlrn_research',
         impl_operation_name => 'AddAppletToCommunity',
@@ -69,8 +64,7 @@ begin
         impl_pl => 'TCL'
     );
 
-    -- RemoveAppletFromCommunity
-    foo := acs_sc_impl.new_alias (
+    foo := acs_sc_impl.new_alias(
         impl_contract_name => 'dotlrn_applet',
         impl_name => 'dotlrn_research',
         impl_operation_name => 'RemoveAppletFromCommunity',
@@ -78,8 +72,7 @@ begin
         impl_pl => 'TCL'
     );
 
-    -- AddUser
-    foo := acs_sc_impl.new_alias (
+    foo := acs_sc_impl.new_alias(
         impl_contract_name => 'dotlrn_applet',
         impl_name => 'dotlrn_research',
         impl_operation_name => 'AddUser',
@@ -87,8 +80,7 @@ begin
         impl_pl => 'TCL'
     );
 
-    -- RemoveUser
-    foo := acs_sc_impl.new_alias (
+    foo := acs_sc_impl.new_alias(
         impl_contract_name => 'dotlrn_applet',
         impl_name => 'dotlrn_research',
         impl_operation_name => 'RemoveUser',
@@ -96,8 +88,7 @@ begin
         impl_pl => 'TCL'
     );
 
-    -- AddUserToCommunity
-    foo := acs_sc_impl.new_alias (
+    foo := acs_sc_impl.new_alias(
         impl_contract_name => 'dotlrn_applet',
         impl_name => 'dotlrn_research',
         impl_operation_name => 'AddUserToCommunity',
@@ -105,8 +96,7 @@ begin
         impl_pl => 'TCL'
     );
 
-    -- RemoveUserFromCommunity
-    foo := acs_sc_impl.new_alias (
+    foo := acs_sc_impl.new_alias(
         impl_contract_name => 'dotlrn_applet',
         impl_name => 'dotlrn_research',
         impl_operation_name => 'RemoveUserFromCommunity',
@@ -114,8 +104,7 @@ begin
         impl_pl => 'TCL'
     );
 
-    -- AddPortlet
-    foo := acs_sc_impl.new_alias (
+    foo := acs_sc_impl.new_alias(
         impl_contract_name => 'dotlrn_applet',
         impl_name => 'dotlrn_research',
         impl_operation_name => 'AddPortlet',
@@ -123,8 +112,7 @@ begin
         impl_pl => 'TCL'
     );
 
-    -- RemovePortlet
-    foo := acs_sc_impl.new_alias (
+    foo := acs_sc_impl.new_alias(
         impl_contract_name => 'dotlrn_applet',
         impl_name => 'dotlrn_research',
         impl_operation_name => 'RemovePortlet',
@@ -132,8 +120,7 @@ begin
         impl_pl => 'TCL'
     );
 
-    -- Clone
-    foo := acs_sc_impl.new_alias (
+    foo := acs_sc_impl.new_alias(
         impl_contract_name => 'dotlrn_applet',
         impl_name => 'dotlrn_research',
         impl_operation_name => 'Clone',
@@ -141,8 +128,7 @@ begin
         impl_pl => 'TCL'
     );
 
-    -- Add the binding
-    acs_sc_binding.new (
+    acs_sc_binding.new(
         contract_name => 'dotlrn_applet',
         impl_name => 'dotlrn_research'
     );

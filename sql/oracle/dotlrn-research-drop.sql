@@ -23,7 +23,3 @@
 --
 
 @@ dotlrn-research-applet-drop.sql
-@@ research-admin-portlet-drop.sql;
-@@ research-portlet-drop.sql;
-
-drop table dotlrn_research_papers;
