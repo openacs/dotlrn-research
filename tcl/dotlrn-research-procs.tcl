@@ -110,7 +110,7 @@ namespace eval dotlrn_research {
         set portal_id [dotlrn_community::get_portal_id $community_id $user_id]
 
         # Remove the portal element
-        research_portlet::remove_self_from_page $portal_id "" $party_id
+        research_portlet::remove_self_from_page $portal_id "" $user_id
 
         # Buh Bye.
         research_portlet::make_self_unavailable $portal_id
