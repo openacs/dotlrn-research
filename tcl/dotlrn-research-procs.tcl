@@ -122,12 +122,13 @@ namespace eval dotlrn_research {
     } {
         Add a user to a to a specifc dotlrn community
     } {
-        # Get the portal_id by callback
+        # we have a per user comm portal
         set portal_id [dotlrn_community::get_portal_id $community_id $user_id]
 
-        # Call the portal element to be added correctly
-        # Make research paper applet available at community-user page level
-        research_portlet::add_self_to_page $portal_id "" $community_id
+	if { [exists_and_not_null $portal_id] } {
+            research_portlet::make_self_available $portal_id
+            research_portlet::add_self_to_page $portal_id "" $community_id
+        }
     }
 
     ad_proc -public remove_user_from_community {
