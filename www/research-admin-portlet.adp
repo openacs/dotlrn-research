@@ -7,7 +7,7 @@
 <multiple name="files_to_add">
     <p></p>
     <li>
-      <img border="0" src="@files_to_add.url@graphics/file.gif" width="15" height="13"></img>
+      <img border="0" src="@files_to_add.url@graphics/file.gif" width="15" height="13">
       &nbsp;
       @files_to_add.name@
       &nbsp;
@@ -30,7 +30,7 @@
 <multiple name="files_to_remove">
     <p></p>
     <li>
-      <img border="0" src="@files_to_remove.url@graphics/file.gif" width="15" height="13"></img>
+      <img border="0" src="@files_to_remove.url@graphics/file.gif" width="15" height="13">
       &nbsp;
       @files_to_remove.name@
       &nbsp;

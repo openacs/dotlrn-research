@@ -6,7 +6,7 @@
   <table border="0" cellpadding="2" cellspacing="2" width="100%">
 <multiple name="files">
     <tr>
-      <td width="5"><img border="0" src="@files.url@graphics/file.gif" width="15" height="13"></img></td>
+      <td width="5"><img border="0" src="@files.url@graphics/file.gif" width="15" height="13"></td>
       <td><a href="@files.url@file?file_id=@files.file_id@">@files.name@</a></td>
       <td>
         <small>[&nbsp;
