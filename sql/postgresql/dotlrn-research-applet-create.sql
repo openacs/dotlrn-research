@@ -128,6 +128,14 @@ select acs_sc_impl_alias__new (
     'TCL'
 );
 
+select acs_sc_impl_alias__new (
+    'dotlrn_applet',
+    'dotlrn_research',
+    'ChangeEventHandler',
+    'dotlrn_research::change_event_handler',
+    'TCL'
+);
+
 select acs_sc_binding__new (
     'dotlrn_applet',
     'dotlrn_research'
