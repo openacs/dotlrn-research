@@ -28,7 +28,6 @@
             <file type="data_model" db_type="oracle" path="sql/oracle/research-admin-portlet-drop.sql"/>
             <file type="data_model" db_type="oracle" path="sql/oracle/research-portlet-create.sql"/>
             <file type="data_model" db_type="oracle" path="sql/oracle/research-portlet-drop.sql"/>
-            <file type="tcl_procs" path="tcl/dotlrn-research-admin-procs.tcl"/>
             <file type="tcl_procs" path="tcl/dotlrn-research-procs.tcl"/>
             <file type="tcl_procs" path="tcl/research-admin-portlet-procs.tcl"/>
             <file type="tcl_procs" path="tcl/research-portlet-procs.tcl"/>

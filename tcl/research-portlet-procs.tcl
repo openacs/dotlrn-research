@@ -50,26 +50,22 @@ namespace eval research_portlet {
 
     ad_proc -public add_self_to_page {
 	{-portal_id:required}
-        {-page_name ""}
-	{-package_id:required}
         {-party_id:required}
     } {
         Adds a research portlet element to the specified page.
 
         @param page_name The page to add self to
 	@param portal_id The portal to add self to
-        @param package_id XXX DO NOT KNOW WHAT THIS IS
         @param party_id The party for which to display research papers
 
 	@return element_id The new element's id
     } {
-        return [portal::add_element_or_append_id \
+        return [portal::add_element_parameters \
             -portal_id $portal_id \
-            -page_name $page_name \
             -portlet_name [get_my_name] \
             -pretty_name [get_pretty_name] \
             -key "party_id" \
-            -value_id $party_id
+            -value $party_id
         ]
     }
 
@@ -84,11 +80,11 @@ namespace eval research_portlet {
         @param package_id XXX DO NOT KNOW WHAT THIS IS
         @param party_id The party for which to display research papers
     } {
-        portal::remove_element_or_remove_id \
+        portal::remove_element_parameters \
             -portal_id $portal_id \
             -portlet_name [get_my_name] \
             -key "party_id" \
-            -value_id $party_id
+            -value $party_id
     }
 
     ad_proc -public make_self_available {

@@ -28,34 +28,21 @@ namespace eval dotlrn_research {
 
     ad_proc -public applet_key {
     } {
-        get the package_key this applet deals with
+        What's my applet key?
     } {
         return "dotlrn_research"
     }
 
     ad_proc -public package_key {
     } {
-        get the package_key this applet deals with
+        What package do I deal with?
     } {
         return "dotlrn-research"
-    }
-
-    ad_proc portal_element_key {
-    } {
-        return the portal element key
-    } {
-        return "research-portlet"
     }
 
     ad_proc -public get_pretty_name {
     } {
         returns the pretty name
-    } {
-        return "dotLRN Research Papers"
-    }
-
-    ad_proc -public get_user_default_page {} {
-        return the user default page to add the portlet to
     } {
         return "Research Papers"
     }
@@ -71,6 +58,7 @@ namespace eval dotlrn_research {
     } {
         Used for one-time destroy - must be repeatable!
     } {
+        ad_return_complaint 1 "[applet_key] remove_applet not implimented!"
     }
 
     ad_proc -public add_applet_to_community {
@@ -78,23 +66,31 @@ namespace eval dotlrn_research {
     } {
         Add the research paper applet to a specifc dotlrn community
     } {
-        set portal_id [dotlrn_community::get_portal_id -community_id $community_id]
-
-        research_portlet::make_self_available $portal_id
-
-        if {[dotlrn_community::dummy_comm_p -community_id $community_id]} {
-            research_portlet::add_self_to_page -portal_id $portal_id -package_id "" -party_id $community_id
-            return
-        }
+        # set up stuff
 
 	set package_id [dotlrn::instantiate_and_mount \
-            -mount_point "research-papers" $community_id [package_key]]
-
-        research_portlet::add_self_to_page -portal_id $portal_id -package_id "" -party_id $community_id
+                            -mount_point "research-papers" \
+                            $community_id \
+                            [package_key]
+        ]
         
-        # set up the admin portlet
-        set admin_portal_id [dotlrn_community::get_admin_portal_id -community_id $community_id]
-        research_admin_portlet::add_self_to_page -portal_id $portal_id -package_id "" -party_id $community_id
+        
+        # portlet stff
+        
+        set portal_id [dotlrn_community::get_portal_id \
+                           -community_id $community_id
+        ]
+        set args [ns_set create]
+        ns_set put $args "party_id" $community_id
+        add_portlet_helper $portal_id $args
+
+        # set up the admin portlet - call directly
+        set admin_portal_id [dotlrn_community::get_admin_portal_id \
+                                 -community_id $community_id
+        ]
+        research_admin_portlet::add_self_to_page  \
+            -portal_id $admin_portal_id \
+            -party_id $community_id
     }
 
     ad_proc -public remove_applet_from_community {
@@ -102,6 +98,7 @@ namespace eval dotlrn_research {
     } {
         remove the applet from the community
     } {
+        ad_return_complaint 1 "[applet_key] remove_applet_from_community not implimented!"
     }
 
     ad_proc -public add_user {
@@ -109,12 +106,14 @@ namespace eval dotlrn_research {
     } {
         One time user-specfic init
     } {
+        # noop
     }
 
     ad_proc -public remove_user {
         user_id
     } {
     } {
+        # noop
     }
 
     ad_proc -public add_user_to_community {
@@ -123,6 +122,7 @@ namespace eval dotlrn_research {
     } {
         Add a user to a to a specifc dotlrn community
     } {
+        # noop
     }
 
     ad_proc -public remove_user_from_community {
@@ -131,13 +131,34 @@ namespace eval dotlrn_research {
     } {
         Remove a user from a community
     } {
+        #noop
     }
 
     ad_proc -public add_portlet {
         portal_id
+    } {
+    } {
+        set args [ns_set create]
+        ns_set put $args party_id 0
+
+        set type [dotlrn::get_type_from_portal_id -portal_id $portal_id]
+        
+        if {![string equal $type "user"] 
+            && ![string equal $type "dotlrn_community"]
+            && ![string equal $type "dotlrn_club"]} {
+            # Add the portlet only to class instaces
+            add_portlet_helper $portal_id $args
+        }
+    }
+
+    ad_proc -public add_portlet_helper {
+        portal_id
         args
     } {
     } {
+        research_portlet::add_self_to_page \
+            -portal_id $portal_id \
+            -party_id [ns_set get $args "party_id"]
     }
 
     ad_proc -public remove_portlet {
@@ -152,5 +173,8 @@ namespace eval dotlrn_research {
         new_community_id
     } {
     } {
+        ns_log notice "Cloning: [applet_key]"
+        add_applet_to_community $new_community_id
     }
+
 }
