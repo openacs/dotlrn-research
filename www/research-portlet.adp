@@ -1,6 +1,6 @@
 <if @config.shaded_p@ ne "t">
 <if @files:rowcount@ eq 0>
-  No research papers
+  <font size="-1">No research papers</font>
 </if>
 <else>
   <table border="0" cellpadding="2" cellspacing="2" width="100%">
