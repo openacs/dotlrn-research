@@ -78,20 +78,19 @@ namespace eval dotlrn_research {
     } {
         Add the research paper applet to a specifc dotlrn community
     } {
-        # get the portal_template_id by callback
-        set pt_id [dotlrn_community::get_portal_template_id $community_id]
+        set portal_id [dotlrn_community::get_portal_id -community_id $community_id]
 
-        research_portlet::make_self_available $pt_id
+        research_portlet::make_self_available $portal_id
 
         if {[dotlrn_community::dummy_comm_p -community_id $community_id]} {
-            research_portlet::add_self_to_page $pt_id "" $community_id
+            research_portlet::add_self_to_page $portal_id "" $community_id
             return
         }
 
 	set instance_id [dotlrn::instantiate_and_mount \
             -mount_point "research-papers" $community_id [package_key]]
 
-        research_portlet::add_self_to_page $pt_id "" $community_id
+        research_portlet::add_self_to_page $portal_id "" $community_id
 
         dotlrn_research_admin::add_applet_to_community $community_id
     }
@@ -122,13 +121,6 @@ namespace eval dotlrn_research {
     } {
         Add a user to a to a specifc dotlrn community
     } {
-        # we have a per user comm portal
-        set portal_id [dotlrn_community::get_portal_id $community_id $user_id]
-
-	if { [exists_and_not_null $portal_id] } {
-            research_portlet::make_self_available $portal_id
-            research_portlet::add_self_to_page $portal_id "" $community_id
-        }
     }
 
     ad_proc -public remove_user_from_community {
@@ -137,14 +129,6 @@ namespace eval dotlrn_research {
     } {
         Remove a user from a community
     } {
-        # Get the portal_id
-        set portal_id [dotlrn_community::get_portal_id $community_id $user_id]
-
-        # Remove the portal element
-        research_portlet::remove_self_from_page $portal_id "" $user_id
-
-        # Buh Bye.
-        research_portlet::make_self_unavailable $portal_id
     }
 
 }

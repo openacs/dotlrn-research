@@ -67,24 +67,23 @@ namespace eval dotlrn_research_admin {
         dotlrn_applet::add_applet_to_dotlrn -applet_key [applet_key]
     }
 
-    ad_proc -public add_applet_to_community {
-        community_id
-    } {
-        Add the research paper applet to a specifc dotlrn community
-    } {
-        # get the portal_template_id by callback
-        set pt_id [dotlrn_community::get_community_admin_portal_id $community_id]
-
-        research_admin_portlet::make_self_available $pt_id
-        research_admin_portlet::add_self_to_page $pt_id "" $community_id
-    }
-
     ad_proc -public remove_applet {
         community_id
         package_id
     } {
         remove the applet from the community
     } {
+    }
+
+    ad_proc -public add_applet_to_community {
+        community_id
+    } {
+        Add the research paper applet to a specifc dotlrn community
+    } {
+        set portal_id [dotlrn_community::get_admin_portal_id -community_id $community_id]
+
+        research_admin_portlet::make_self_available $portal_id
+        research_admin_portlet::add_self_to_page $portal_id "" $community_id
     }
 
     ad_proc -public add_user {
@@ -94,23 +93,17 @@ namespace eval dotlrn_research_admin {
     } {
     }
 
+    ad_proc -public remove_user {
+        user_id
+    } {
+    } {
+    }
+
     ad_proc -public add_user_to_community {
         community_id
         user_id
     } {
         Add a user to a to a specifc dotlrn community
-    } {
-        # Get the portal_id by callback
-        set portal_id [dotlrn_community::get_portal_id $community_id $user_id]
-
-        # Call the portal element to be added correctly
-        # Make research paper applet available at community-user page level
-        research_admin_portlet::add_self_to_page $portal_id "" $community_id
-    }
-
-    ad_proc -public remove_user {
-        user_id
-    } {
     } {
     }
 
@@ -120,14 +113,6 @@ namespace eval dotlrn_research_admin {
     } {
         Remove a user from a community
     } {
-        # Get the portal_id
-        set portal_id [dotlrn_community::get_portal_id $community_id $user_id]
-
-        # Remove the portal element
-        research_admin_portlet::remove_self_from_page $portal_id "" $party_id
-
-        # Buh Bye.
-        research_admin_portlet::make_self_unavailable $portal_id
     }
 
 }
