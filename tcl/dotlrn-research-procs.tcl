@@ -91,8 +91,10 @@ namespace eval dotlrn_research {
             -mount_point "research-papers" $community_id [package_key]]
 
         research_portlet::add_self_to_page -portal_id $portal_id -package_id "" -party_id $community_id
-
-        dotlrn_research_admin::add_applet_to_community $community_id
+        
+        # set up the admin portlet
+        set admin_portal_id [dotlrn_community::get_admin_portal_id -community_id $community_id]
+        research_admin_portlet::add_self_to_page -portal_id $portal_id -package_id "" -party_id $community_id
     }
 
     ad_proc -public remove_applet_from_community {
@@ -131,4 +133,24 @@ namespace eval dotlrn_research {
     } {
     }
 
+    ad_proc -public add_portlet {
+        portal_id
+        args
+    } {
+    } {
+    }
+
+    ad_proc -public remove_portlet {
+        portal_id
+        args
+    } {
+    } {
+    }
+
+    ad_proc -public clone {
+        old_community_id
+        new_community_id
+    } {
+    } {
+    }
 }

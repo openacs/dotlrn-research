@@ -98,8 +98,8 @@ begin
     foo := acs_sc_impl.new_alias(
         'portal_datasource',
         'research_admin_portlet',
-        'MyName',
-        'research_admin_portlet::my_name',
+        'GetMyName',
+        'research_admin_portlet::get_my_name',
         'TCL'
     );
 
@@ -148,22 +148,6 @@ begin
         'research_admin_portlet',
         'RemoveSelfFromPage',
         'research_admin_portlet::remove_self_from_page',
-        'TCL'
-    );
-
-    foo := acs_sc_impl.new_alias(
-        'portal_datasource',
-        'research_admin_portlet',
-        'MakeSelfAvailable',
-        'research_admin_portlet::make_self_available',
-        'TCL'
-    );
-
-    foo := acs_sc_impl.new_alias(
-        'portal_datasource',
-        'research_admin_portlet',
-        'MakeSelfUnavailable',
-        'research_admin_portlet::make_self_unavailable',
         'TCL'
     );
 

@@ -24,7 +24,7 @@
 
 create table dotlrn_research_papers (
     community_id                constraint dotlrn_rp_community_id_fk
-                                references dotlrn_communities (community_id)
+                                references dotlrn_communities_all (community_id)
                                 constraint dotlrn_rp_community_id_nn
                                 not null,
     file_id                     constraint dotlrn_rp_file_id_fk

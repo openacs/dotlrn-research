@@ -33,7 +33,7 @@ namespace eval research_portlet {
         return "dotlrn-research"
     }
 
-    ad_proc -private my_name {
+    ad_proc -private get_my_name {
     } {
         return "research_portlet"
     }
@@ -66,7 +66,7 @@ namespace eval research_portlet {
         return [portal::add_element_or_append_id \
             -portal_id $portal_id \
             -page_name $page_name \
-            -portlet_name [my_name] \
+            -portlet_name [get_my_name] \
             -pretty_name [get_pretty_name] \
             -key "party_id" \
             -value_id $party_id
@@ -86,7 +86,7 @@ namespace eval research_portlet {
     } {
         portal::remove_element_or_remove_id \
             -portal_id $portal_id \
-            -portlet_name [my_name] \
+            -portlet_name [get_my_name] \
             -key "party_id" \
             -value_id $party_id
     }
@@ -99,7 +99,7 @@ namespace eval research_portlet {
  	@param portal_id
     } {
  	portal::make_datasource_available \
-            $portal_id [portal::get_datasource_id [my_name]]
+            $portal_id [portal::get_datasource_id [get_my_name]]
     }
 
     ad_proc -public make_self_unavailable {
@@ -110,7 +110,7 @@ namespace eval research_portlet {
 	@param portal_id
     } {
 	portal::make_datasource_unavailable \
-            $portal_id [portal::get_datasource_id [my_name]]
+            $portal_id [portal::get_datasource_id [get_my_name]]
     }
 
     ad_proc -public show {

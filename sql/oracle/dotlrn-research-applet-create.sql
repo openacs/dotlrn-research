@@ -114,13 +114,6 @@ begin
         impl_pl => 'TCL'
     );
 
-    -- Add the binding
-    acs_sc_binding.new (
-        contract_name => 'dotlrn_applet',
-        impl_name => 'dotlrn_research'
-    );
-
-
     -- AddPortlet
     foo := acs_sc_impl.new_alias (
         impl_contract_name => 'dotlrn_applet',
@@ -146,6 +139,12 @@ begin
         impl_operation_name => 'Clone',
         impl_alias => 'dotlrn_research::clone',
         impl_pl => 'TCL'
+    );
+
+    -- Add the binding
+    acs_sc_binding.new (
+        contract_name => 'dotlrn_applet',
+        impl_name => 'dotlrn_research'
     );
 
 end;
