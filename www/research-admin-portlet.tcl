@@ -6,7 +6,8 @@ ad_page_contract {
     @author yon (yon@openforce.net)
     @version $Id$
 } -properties {
-    files:multirow
+    files_to_add:multirow
+    files_to_remove:multirow
 }
 
 array set config $cf
@@ -14,6 +15,7 @@ set user_id [ad_conn user_id]
 set community_id [dotlrn_community::get_community_id]
 set party_id $config(party_id)
 
-db_multirow files select_files {}
+db_multirow files_to_add select_files_to_add {}
+db_multirow files_to_remove select_files_to_remove {}
 
 ad_return_template 

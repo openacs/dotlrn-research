@@ -8,13 +8,13 @@ ad_library {
 
 }
 
-namespace eval dotlrn_research {
+namespace eval dotlrn_research_admin {
 
     ad_proc -public applet_key {
     } {
         get the package_key this applet deals with
     } {
-        return "dotlrn_research"
+        return "dotlrn_research_admin"
     }
 
     ad_proc -public package_key {
@@ -57,12 +57,10 @@ namespace eval dotlrn_research {
         Add the research paper applet to a specifc dotlrn community
     } {
         # get the portal_template_id by callback
-        set pt_id [dotlrn_community::get_portal_template_id $community_id]
+        set pt_id [dotlrn_community::get_community_admin_portal_id $community_id]
 
-        research_portlet::make_self_available $pt_id
-        research_portlet::add_self_to_page $pt_id "" $community_id
-
-        dotlrn_research_admin::add_applet_to_community $community_id
+        research_admin_portlet::make_self_available $pt_id
+        research_admin_portlet::add_self_to_page $pt_id "" $community_id
     }
 
     ad_proc -public remove_applet {
@@ -91,7 +89,7 @@ namespace eval dotlrn_research {
 
         # Call the portal element to be added correctly
         # Make research paper applet available at community-user page level
-        research_portlet::add_self_to_page $portal_id "" $community_id
+        research_admin_portlet::add_self_to_page $portal_id "" $community_id
     }
 
     ad_proc -public remove_user {
@@ -110,10 +108,10 @@ namespace eval dotlrn_research {
         set portal_id [dotlrn_community::get_portal_id $community_id $user_id]
 
         # Remove the portal element
-        research_portlet::remove_self_from_page $portal_id "" $party_id
+        research_admin_portlet::remove_self_from_page $portal_id "" $party_id
 
         # Buh Bye.
-        research_portlet::make_self_unavailable $portal_id
+        research_admin_portlet::make_self_unavailable $portal_id
     }
 
 }

@@ -15,7 +15,7 @@ begin
         select datasource_id
         into ds_id
         from portal_datasources
-        where name = 'research_portlet';
+        where name = 'research_admin_portlet';
     exception when no_data_found then
         ds_id := null;
     end;
@@ -26,66 +26,66 @@ begin
 
     acs_sc_binding.delete(
         contract_name => 'portal_datasource',
-        impl_name => 'research_portlet'
+        impl_name => 'research_admin_portlet'
     );
 
     foo := acs_sc_impl.delete_alias(
         impl_contract_name => 'portal_datasource',
-        impl_name => 'research_portlet',
+        impl_name => 'research_admin_portlet',
         impl_operation_name => 'MyName'
     );
 
     foo := acs_sc_impl.delete_alias(
         impl_contract_name => 'portal_datasource',
-        impl_name => 'research_portlet',
+        impl_name => 'research_admin_portlet',
         impl_operation_name => 'GetPrettyName'
     );
 
     foo := acs_sc_impl.delete_alias(
         impl_contract_name => 'portal_datasource',
-        impl_name => 'research_portlet',
+        impl_name => 'research_admin_portlet',
         impl_operation_name => 'Link'
     );
 
     foo := acs_sc_impl.delete_alias(
         impl_contract_name => 'portal_datasource',
-        impl_name => 'research_portlet',
+        impl_name => 'research_admin_portlet',
         impl_operation_name => 'AddSelfToPage'
     );
 
     foo := acs_sc_impl.delete_alias(
         impl_contract_name => 'portal_datasource',
-        impl_name => 'research_portlet',
+        impl_name => 'research_admin_portlet',
         impl_operation_name => 'Show'
     );
 
     foo := acs_sc_impl.delete_alias(
         impl_contract_name => 'portal_datasource',
-        impl_name => 'research_portlet',
+        impl_name => 'research_admin_portlet',
         impl_operation_name => 'Edit'
     );
 
     foo := acs_sc_impl.delete_alias(
         impl_contract_name => 'portal_datasource',
-        impl_name => 'research_portlet',
+        impl_name => 'research_admin_portlet',
         impl_operation_name => 'RemoveSelfFromPage'
     );
 
     foo := acs_sc_impl.delete_alias(
         impl_contract_name => 'portal_datasource',
-        impl_name => 'research_portlet',
+        impl_name => 'research_admin_portlet',
         impl_operation_name => 'MakeSelfAvailable'
     );
 
     foo := acs_sc_impl.delete_alias(
         impl_contract_name => 'portal_datasource',
-        impl_name => 'research_portlet',
+        impl_name => 'research_admin_portlet',
         impl_operation_name => 'MakeSelfUnavailable'
     );
 
     acs_sc_impl.delete(
         impl_contract_name => 'portal_datasource',
-        impl_name => 'research_portlet'
+        impl_name => 'research_admin_portlet'
     );
 end;
 /
