@@ -60,13 +60,13 @@ namespace eval dotlrn_research {
     } {
         Used for one-time destroy - must be repeatable!
     } {
-        ad_return_complaint 1 "[applet_key] remove_applet not implimented!"
+        ad_return_complaint 1 "[applet_key] remove_applet not implemented!"
     }
 
     ad_proc -public add_applet_to_community {
         community_id
     } {
-        Add the research paper applet to a specifc dotlrn community
+        Add the research paper applet to a specific dotlrn community
     } {
         set type [dotlrn_community::get_toplevel_community_type_from_community_id $community_id]
 
@@ -84,7 +84,7 @@ namespace eval dotlrn_research {
     } {
         remove the applet from the community
     } {
-        ad_return_complaint 1 "[applet_key] remove_applet_from_community not implimented!"
+        ad_return_complaint 1 "[applet_key] remove_applet_from_community not implemented!"
     }
 
     ad_proc -public add_user {
